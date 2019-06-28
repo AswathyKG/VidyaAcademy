@@ -120,15 +120,15 @@ public class Login extends AppCompatActivity {
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                                         for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                                            Log.e( "message1",dataSnapshot1.getKey().toString() );
+                                            Log.e( "message1", dataSnapshot1.getKey().toString() );
 
                                             for (DataSnapshot dataSnapshot2 : dataSnapshot1.getChildren()) {
-                                                Log.e( "message2",dataSnapshot2.getKey().toString() );
-                                                if(dataSnapshot2.getKey().toString().equals( cls )){
+                                                Log.e( "message2", dataSnapshot2.getKey().toString() );
+                                                if (dataSnapshot2.getKey().toString().equals( cls )) {
                                                     final String msg = stud + " " + cls;
-                                                   // String ph=dataSnapshot2.child( "phno" ).getValue().toString();
-                                                    Log.e( "insideloop",dataSnapshot1.child( "phno" ).getValue().toString() );
-                                                    String phoneNo =  "+91"+ dataSnapshot1.child( "phno" ).getValue().toString();
+                                                    // String ph=dataSnapshot2.child( "phno" ).getValue().toString();
+                                                    Log.e( "insideloop", dataSnapshot1.child( "phno" ).getValue().toString() );
+                                                    String phoneNo = "+91" + dataSnapshot1.child( "phno" ).getValue().toString();
                                                     SmsManager smsManager = SmsManager.getDefault();
                                                     ArrayList<String> messageParts = smsManager.divideMessage( msg );
                                                     smsManager.sendMultipartTextMessage( phoneNo, null, messageParts, null, null );
@@ -166,54 +166,46 @@ public class Login extends AppCompatActivity {
 
     public void signin(final String user, final String pass) {
 
-        if (user.isEmpty() && pass.isEmpty()) {
+        if (user.isEmpty() || pass.isEmpty()) {
 
             Toast.makeText( Login.this, "userid and password cannot be empty", Toast.LENGTH_LONG ).show();
             return;
 
-        } else if (user.isEmpty()) {
-            edt_login_username.setError( "Please enter username" );
-            return;
-        } else if (pass.isEmpty()) {
-            edt_login_password.setError( "Please enter password" );
-            return;
         } else {
-            Toast.makeText( getApplicationContext(), "Please enter valid details", Toast.LENGTH_LONG ).show();
-        }
 
 
-        myRef.addListenerForSingleValueEvent( new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+            myRef.addListenerForSingleValueEvent( new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
 
-                    for (DataSnapshot dataSnapshot2 : dataSnapshot1.getChildren()) {
-                        // Log.e(TAG,dataSnapshot1.getChildren().toString());
+                        for (DataSnapshot dataSnapshot2 : dataSnapshot1.getChildren()) {
+                            // Log.e(TAG,dataSnapshot1.getChildren().toString());
 
-                        if (user.equals( dataSnapshot2.getKey() ) && pass.equals( dataSnapshot2.child( "password" ).getValue() )) {
+                            if (user.equals( dataSnapshot2.getKey() ) && pass.equals( dataSnapshot2.child( "password" ).getValue() )) {
 
-                            sharedPreferences = getApplicationContext().getSharedPreferences( "MyShared", Context.MODE_PRIVATE );
-                            editor = sharedPreferences.edit();
-                            editor.putString( REMINDER, "yes" );
-                            editor.putString( userid, dataSnapshot2.getKey().toString() );
-                            editor.putString( password, dataSnapshot2.child( "password" ).getValue().toString() );
-                            editor.commit();
+                                sharedPreferences = getApplicationContext().getSharedPreferences( "MyShared", Context.MODE_PRIVATE );
+                                editor = sharedPreferences.edit();
+                                editor.putString( REMINDER, "yes" );
+                                editor.putString( userid, dataSnapshot2.getKey().toString() );
+                                editor.putString( password, dataSnapshot2.child( "password" ).getValue().toString() );
+                                editor.commit();
 
-                            switch (dataSnapshot1.getKey().toString()) {
+                                switch (dataSnapshot1.getKey().toString()) {
 
-                                case "admin":
-                                    Toast.makeText( getApplicationContext(), "admin", Toast.LENGTH_LONG ).show();
-                                    sharedToSave( dataSnapshot2 );
+                                    case "admin":
+                                        Toast.makeText( getApplicationContext(), "admin", Toast.LENGTH_LONG ).show();
+                                        sharedToSave( dataSnapshot2 );
 
-                                    editor.putString( "key", "admin" );
-                                    editor.commit();
+                                        editor.putString( "key", "admin" );
+                                        editor.commit();
 
-                                    Intent intent = new Intent( Login.this, Admin.class );
-                                    startActivity( intent );
-                                    Toast.makeText( getApplicationContext(), "adminl", Toast.LENGTH_LONG ).show();
+                                        Intent intent = new Intent( Login.this, Admin.class );
+                                        startActivity( intent );
+                                        Toast.makeText( getApplicationContext(), "adminl", Toast.LENGTH_LONG ).show();
 
-                                    break;
-                                case "parent":
+                                        break;
+                                    case "parent":
                                   /*  Toast.makeText( getApplicationContext(), "activity_parent", Toast.LENGTH_LONG ).show();
                                     sharedToSave( dataSnapshot2 );
                                     editor.putString( "key", "activity_parent" );
@@ -223,62 +215,63 @@ public class Login extends AppCompatActivity {
                                     Toast.makeText( getApplicationContext(), "parentl", Toast.LENGTH_LONG ).show();
 
                                     break;*/
-                                    continue;
-                                case "principal":
-                                    Toast.makeText( getApplicationContext(), "Principal", Toast.LENGTH_LONG ).show();
-                                    sharedToSave( dataSnapshot2 );
+                                        continue;
+                                    case "principal":
+                                        Toast.makeText( getApplicationContext(), "Principal", Toast.LENGTH_LONG ).show();
+                                        sharedToSave( dataSnapshot2 );
 
-                                    editor.putString( "key", "principal" );
-                                    editor.commit();
+                                        editor.putString( "key", "principal" );
+                                        editor.commit();
 
-                                    Intent intent2 = new Intent( Login.this, Principal.class );
-                                    startActivity( intent2 );
-                                    Toast.makeText( getApplicationContext(), "activity_principal", Toast.LENGTH_LONG ).show();
+                                        Intent intent2 = new Intent( Login.this, Principal.class );
+                                        startActivity( intent2 );
+                                        Toast.makeText( getApplicationContext(), "activity_principal", Toast.LENGTH_LONG ).show();
 
-                                    break;
-                            }
-
-
-                        } else if (user.equals( dataSnapshot2.getKey() ) && pass.equals( dataSnapshot2.child( "reg_No" ).getValue() )) {
-
-                            sharedPreferences = getApplicationContext().getSharedPreferences( "MyShared", Context.MODE_PRIVATE );
-                            editor = sharedPreferences.edit();
-                            editor.putString( REMINDER, "yes" );
-                            editor.putString( userid, dataSnapshot2.getKey().toString() );
-                            editor.putString( password, dataSnapshot2.child( "reg_No" ).getValue().toString() );
-                            editor.commit();
-
-                            switch (dataSnapshot1.getKey().toString()) {
+                                        break;
+                                }
 
 
-                                case "admin":
-                                    continue;
-                                case "parent":
-                                    Toast.makeText( getApplicationContext(), "activity_parent", Toast.LENGTH_LONG ).show();
-                                    sharedToSave2( dataSnapshot2 );
-                                    editor.putString( "key", "activity_parent" );
-                                    editor.commit();
-                                    Intent intent1 = new Intent( Login.this, Parent.class );
-                                    startActivity( intent1 );
-                                    Toast.makeText( getApplicationContext(), "parentl", Toast.LENGTH_LONG ).show();
+                            } else if (user.equals( dataSnapshot2.getKey() ) && pass.equals( dataSnapshot2.child( "reg_No" ).getValue() )) {
 
-                                    break;
-                                case "principal":
-                                    continue;
+                                sharedPreferences = getApplicationContext().getSharedPreferences( "MyShared", Context.MODE_PRIVATE );
+                                editor = sharedPreferences.edit();
+                                editor.putString( REMINDER, "yes" );
+                                editor.putString( userid, dataSnapshot2.getKey().toString() );
+                                editor.putString( password, dataSnapshot2.child( "reg_No" ).getValue().toString() );
+                                editor.commit();
 
+                                switch (dataSnapshot1.getKey().toString()) {
+
+
+                                    case "admin":
+                                        continue;
+                                    case "parent":
+                                        Toast.makeText( getApplicationContext(), "activity_parent", Toast.LENGTH_LONG ).show();
+                                        sharedToSave2( dataSnapshot2 );
+                                        editor.putString( "key", "activity_parent" );
+                                        editor.commit();
+                                        Intent intent1 = new Intent( Login.this, Parent.class );
+                                        startActivity( intent1 );
+                                        Toast.makeText( getApplicationContext(), "parentl", Toast.LENGTH_LONG ).show();
+
+                                        break;
+                                    case "principal":
+                                        continue;
+
+
+                                }
 
                             }
 
                         }
-
                     }
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        } );
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                }
+            } );
+        }
     }
 
     public void sharedToSave(DataSnapshot dataSnapshot2) {
@@ -300,6 +293,5 @@ public class Login extends AppCompatActivity {
 
 
     }
-
 
 }
