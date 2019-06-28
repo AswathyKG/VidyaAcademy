@@ -3,102 +3,165 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:id="@+id/about_parent_img"
-        android:background="@drawable/vidhya_logo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"/>
-
-    <RelativeLayout
-        android:id="@+id/login_container"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@id/about_parent_img"
-        android:background="@drawable/bg_white">
-        <LinearLayout
+        android:id="@+id/imglayout"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/about_parent_img"
+            android:background="@drawable/vidhya"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"/>
+        <TextView
+            android:id="@+id/txt_about"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="About us"
+            android:elevation="2dp"
+            android:textColor="#000"
+            android:textSize="20dp"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="5dp"
+        android:id="@+id/login_container"
+        android:layout_marginLeft="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="15dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/imglayout"
+        android:background="@drawable/bg_white">
+        <LinearLayout
+            android:id="@+id/about"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/about_parent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:gravity="center_horizontal"
-                android:text="@string/about_us"
-                android:textColor="#000"
-                android:textSize="15dp"
-                android:textStyle="normal" />
+            <!-- <TextView
+                 android:id="@+id/about_parent"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_centerInParent="true"
+                 android:layout_centerHorizontal="true"
+                 android:layout_centerVertical="true"
+                 android:layout_marginTop="10dp"
+                 android:layout_marginBottom="10dp"
+                 android:gravity="center_horizontal"
+                 android:text="@string/about_us"
+                 android:textColor="#000"
+                 android:textSize="15dp"
+                 android:textStyle="normal" />-->
+            <!--  <TextView
+                  android:id="@+id/about_parent"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_margin="5dp"
+                  android:background="#fff"
+                  android:clickable="true"
+                  android:elevation="4dp"
+                  android:padding="20dp"
+                  android:textColor="#000000"
+                  android:text="@string/about_us" />-->
+
 
 
             <LinearLayout
-                android:layout_marginTop="35dp"
-                android:layout_below="@+id/about_parent"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp"
-                android:padding="1.5dp"
-                android:weightSum="1">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".33">
-                    <ImageButton
-                        android:id="@+id/about_parent_img_fb"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#ffffff"
-                        android:src="@drawable/fb"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".33">
-                    <ImageButton
-                        android:background="#ffffff"
-                        android:id="@+id/about_parent_img_youtube"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/youtube"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".33">
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imglayout"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
 
-                    <ImageButton
-                        android:background="#ffffff"
-                        android:id="@+id/about_parent_img_web"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/web" />
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/about_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="#fff"
+                    android:clickable="true"
+                    android:elevation="4dp"
+                    android:padding="20dp"
+                    android:textColor="#000000"
+                    android:text="@string/about_us" />
 
 
 
             </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_alignParentBottom="true"
-            android:orientation="vertical">
 
-            <ImageView
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/achu1" />
+                android:layout_height="100dp"
+                android:background="#fff"
+                >
+
+                <LinearLayout
+                    android:layout_below="@id/about_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:orientation="horizontal"
+                    android:padding="1.5dp"
+                    android:weightSum="1">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".25">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/about_parent_img_fb"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#ffffff"
+                            android:src="@drawable/fb"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".25">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:background="#ffffff"
+                            android:id="@+id/about_parent_img_youtube"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/youtube"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".25">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:background="#ffffff"
+                            android:id="@+id/about_parent_img_web"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/web" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".25">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:background="#ffffff"
+                            android:id="@+id/about_parent_img_call"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/callgreen"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
-
 </RelativeLayout>
