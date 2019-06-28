@@ -5,8 +5,8 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:id="@+id/help_parent_img"
         android:background="@drawable/vidhya_logo"
         android:layout_centerHorizontal="true"
@@ -36,7 +36,6 @@
                 android:gravity="center_horizontal"
                 android:text="@string/about_us"
                 android:textColor="#000"
-                android:textSize="15dp"
                 android:textStyle="normal" />
 
 

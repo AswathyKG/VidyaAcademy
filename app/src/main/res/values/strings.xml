@@ -36,7 +36,7 @@
 
     <string name="nav_header_titlep">Principal</string>
     <string name="nav_header_subtitlep">princi.studio@android.com</string>
-    <string name="about_us">At the beginning of your company profile include important information such as your company name  your business s physical location a website URL contact information and an established date.Consider adding a timeline or synopsis of your companys history including information regarding expansion or growth.</string>
+    <string name="about_us">At the beginning of your company profile include important information such as your company name  your business s physical location a website URL contact information and an established date.Consider adding a timeline or synopsis of your companys history including information regarding expansion or growth.At the beginning of your company profile include important information such as your company name  your business s physical location a website URL contact information and an established date.Consider adding a timeline or synopsis of your companys history including information regarding expansion or growth.</string>
 
 <string name="name">Name</string>
 <string name="email">Email</string>
