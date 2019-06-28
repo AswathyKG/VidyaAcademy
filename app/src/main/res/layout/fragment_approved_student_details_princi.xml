@@ -6,6 +6,7 @@
 
 
     <RelativeLayout
+
         android:id="@+id/approved_stud_"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -15,7 +16,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/ic_person_black_24dp"
             app:civ_border_color="#cccccc"
             app:civ_border_width="2dp" />
@@ -36,7 +37,7 @@
             android:weightSum="1">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".50"
                 android:paddingStart="10dp"
@@ -45,7 +46,7 @@
 
             <TextView
                 android:id="@+id/tv_stud_name_approved"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".50"
                 android:gravity="left"
@@ -69,7 +70,7 @@
             android:weightSum="1">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".50"
                 android:paddingStart="10dp"
@@ -78,7 +79,7 @@
 
             <TextView
                 android:id="@+id/tv_stud_address_approved"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".50"
                 android:gravity="left"
@@ -103,7 +104,7 @@
             android:weightSum="1">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".50"
                 android:paddingStart="10dp"
@@ -112,7 +113,7 @@
 
             <TextView
                 android:id="@+id/tv_stud_pname_approved"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".50"
                 android:gravity="left"
@@ -165,6 +166,7 @@
                         android:layout_weight=".05" />
 -->
                 </LinearLayout>
+<!--
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
@@ -176,6 +178,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/achu1" />
         </LinearLayout>
+-->
 
 
     </RelativeLayout>
