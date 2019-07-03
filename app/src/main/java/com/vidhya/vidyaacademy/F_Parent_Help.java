@@ -24,7 +24,9 @@ public class F_Parent_Help extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate( R.layout.fragment_parent_help, container, false );
 
+/*
         help_parent_img = view.findViewById( R.id.help_parent_img );
+*/
         help_parent = view.findViewById( R.id.help_parent );
 
         return view;

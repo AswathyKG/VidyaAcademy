@@ -1,8 +1,11 @@
 package com.vidhya.vidyaacademy;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -198,9 +201,9 @@ public class Admin extends FragmentActivity
 
 
         } else if (id == R.id.nav_logout) {
-            SharedPreferences preferences = getApplicationContext().getSharedPreferences( "MyShared", Context.MODE_PRIVATE );
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.clear();
+           /* SharedPreferences preferences = getApplicationContext().getSharedPreferences( "MyShared", Context.MODE_PRIVATE );
+            SharedPreferences.Editor editor = preferences.edit();*/
+           /* editor.clear();
             editor.commit();
             Intent intent = new Intent( Admin.this, Login.class );
             intent.putExtra( "finish", true );
@@ -209,7 +212,40 @@ public class Admin extends FragmentActivity
                     Intent.FLAG_ACTIVITY_NEW_TASK );
             startActivity( intent );
 
-            finish();
+            finish();*/
+
+
+  /*          R.id.nav_logout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {*/
+
+                    AlertDialog.Builder callDialog = new AlertDialog.Builder(Admin.this);
+                    callDialog.setTitle("LogOut");
+                    callDialog.setMessage("Do u want to LogOut??");
+                    callDialog.setPositiveButton("LogOut", new DialogInterface.OnClickListener() {
+
+                        public void onClick(DialogInterface dialog, int id) {
+                            SharedPreferences preferences = getApplicationContext().getSharedPreferences( "MyShared", Context.MODE_PRIVATE );
+
+                            SharedPreferences.Editor editor = preferences.edit();
+
+                            editor.clear();
+                            editor.commit();
+                            Intent intent = new Intent( Admin.this, Login.class );
+                            intent.putExtra( "finish", true );
+                            intent.setFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                                    Intent.FLAG_ACTIVITY_CLEAR_TASK |
+                                    Intent.FLAG_ACTIVITY_NEW_TASK );
+                            startActivity( intent );
+
+                            finish();
+
+                        }
+                    });
+                    callDialog.setNegativeButton("Cancel", null);
+                    callDialog.show();
+
+
 
 
         } else if (id == R.id.nav_pending_list) {

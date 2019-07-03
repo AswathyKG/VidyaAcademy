@@ -50,7 +50,7 @@ public class F_AddAdmin extends Fragment implements AdapterView.OnItemSelectedLi
         edt_addadmin_phno = view.findViewById( R.id.edt_addadmin_phno );
         edt_addadmin_password = view.findViewById( R.id.edt_addadmin_password );
         edt_addadmin_userid = view.findViewById( R.id.edt_addadmin_userid );
-        //spinner_addadmin=(Spinner)view.findViewById(R.id.spinner_addadmin);
+        spinner_addadmin=(Spinner)view.findViewById(R.id.spinner_addadmin_class);
       //  btn_addadmin_upload=(Button)view.findViewById(R.id.btn_addadmin_upload);
         btn_addadmin_add = (Button) view.findViewById( R.id.btn_addadmin_add );
 
@@ -79,10 +79,10 @@ public class F_AddAdmin extends Fragment implements AdapterView.OnItemSelectedLi
 
 
         String [] classes = {"classA","classB","classC","classD","classE","classF","classG"};
-      //  Spinner spinner = (Spinner) view.findViewById(R.id.spinner_addadmin);
+        Spinner spinner = (Spinner) view.findViewById(R.id.spinner_addadmin_class);
         ArrayAdapter<String> LTRadapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_item, classes);
         LTRadapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        //spinner.setAdapter(LTRadapter);
+        spinner.setAdapter(LTRadapter);
 
 
         firebaseDatabase = FirebaseDatabase.getInstance();
